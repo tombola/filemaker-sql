@@ -1,5 +1,5 @@
 # filemaker-sqlalchemy
-Proof of Concept for connecting to FileMaker database using via an ORM.  
+Proof of Concept for connecting to FileMaker database using via an ORM ([background](https://github.com/vitalseeds/vs-data-api/issues/4#issuecomment-1436095032)).  
 ORM selected is SQL Alchemy, as this is widely used and documented. If I can get that working I would like to use [SQLmodel](https://sqlmodel.tiangolo.com/).
 A fallback would at least be to allow use with SQL core to simplify SQL construction.
 
