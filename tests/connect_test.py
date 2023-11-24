@@ -1,5 +1,5 @@
 import pypyodbc
-from pypika import Query, Table, Field
+from pypika import Query, Table, Tables, Field
 from rich import print
 import pypyodbc
 
@@ -13,12 +13,32 @@ def test_connect(fmdb):
 
 
 def test_select(fmdb: pypyodbc.Connection):
-    cursor = fmdb.cursor()
-    q = Query.from_("Products").select("Date", "Part Number")
-    sql = q.get_sql()
-    print(sql)
-    results = cursor.execute(sql)
-    all_results = results.fetchall()
+    with fmdb:
+        cursor = fmdb.cursor()
+        q = Query.from_("Products").select("Date", "Part Number")
+        sql = q.get_sql()
+        print(sql)
+        results = cursor.execute(sql)
+        all_results = results.fetchall()
+
+    assert isinstance(results, pypyodbc.Cursor)
+    assert isinstance(all_results, list)
+
+
+def test_select_join(fmdb: pypyodbc.Connection):
+    products, transactions = Tables("Products", "Inventory Transactions")
+    with fmdb:
+        cursor = fmdb.cursor()
+        q = (
+            Query.from_(products)
+            .join(transactions)
+            .on(products.pk == transactions.fk)
+            .select(products.Date, transactions.Units)
+        )
+        sql = q.get_sql()
+        print(sql)
+        results = cursor.execute(sql)
+        all_results = results.fetchall()
 
     assert isinstance(results, pypyodbc.Cursor)
     assert isinstance(all_results, list)
