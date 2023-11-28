@@ -32,7 +32,7 @@ def test_select_join(fmdb: pypyodbc.Connection):
         q = (
             Query.from_(products)
             .join(transactions)
-            .on(products.pk == transactions.fk)
+            .on(products.PrimaryKey == transactions.ForeignKey)
             .select(products.Date, transactions.Units)
         )
         sql = q.get_sql()
