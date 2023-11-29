@@ -1,6 +1,6 @@
-from pypika.terms import Function
-
 import datetime
+
+from pypika.terms import Function
 
 
 class FMDate(Function):

@@ -1,5 +1,5 @@
-import pytest
 import pypyodbc
+import pytest
 
 
 def get_dsn_connection_string(dsn="test", user="test", pwd=""):
@@ -7,9 +7,7 @@ def get_dsn_connection_string(dsn="test", user="test", pwd=""):
 
 
 def get_connection_string():
-    return (
-        "DRIVER={FileMaker ODBC};SERVER=localhost;DATABASE=inventory_test;UID=test;PWD="
-    )
+    return "DRIVER={FileMaker ODBC};SERVER=localhost;DATABASE=inventory_test;UID=test;PWD="
 
 
 @pytest.fixture

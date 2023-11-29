@@ -1,5 +1,5 @@
-from pypika import Query, Tables
 import pypyodbc
+from pypika import Query, Tables
 
 
 def select_all(fmdb: pypyodbc.Connection, query):
