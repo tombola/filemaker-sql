@@ -4,5 +4,4 @@ pypyodbc @ https://github.com/tombola/pypyodbc/archive/main.zip
 pytest
 rich
 
-black
-isort
+ruff
