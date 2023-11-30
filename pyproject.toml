@@ -25,12 +25,17 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = []
+dependencies = [
+  "click",
+]
 
 [project.urls]
-Documentation = "https://github.com/tombola/filemaker-sql#readme"
-Issues = "https://github.com/tombola/filemaker-sql/issues"
-Source = "https://github.com/tombola/filemaker-sql"
+Documentation = "https://github.com/unknown/filemaker-sql#readme"
+Issues = "https://github.com/unknown/filemaker-sql/issues"
+Source = "https://github.com/unknown/filemaker-sql"
+
+[project.scripts]
+filemaker-sql = "filemaker_sql.cli:filemaker_sql"
 
 [tool.hatch.version]
 path = "src/filemaker_sql/__about__.py"
