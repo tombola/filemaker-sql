@@ -4,6 +4,6 @@
 import sys
 
 if __name__ == "__main__":
-    from filemaker_sql.cli import filemaker_sql
+    from fmsql.cli import fmsql
 
-    sys.exit(filemaker_sql())
+    sys.exit(fmsql())
