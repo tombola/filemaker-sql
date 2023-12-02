@@ -1,4 +1,5 @@
 import pypyodbc
+from rich import print
 
 
 def select_all(fmdb: pypyodbc.Connection, query):

@@ -1,5 +1,5 @@
 import pypyodbc
-from pypika import Query, Tables
+from pypika import Query
 
 from fmsql.utils import select_all
 

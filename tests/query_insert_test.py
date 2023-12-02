@@ -18,7 +18,6 @@ def test_insert(fmdb: pypyodbc.Connection):
             "Unit Price",
             "Unit Price",
         )
-        from pypika.functions import Convert
 
         q = (
             Query.into(products)
