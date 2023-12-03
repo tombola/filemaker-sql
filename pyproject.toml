@@ -35,7 +35,7 @@ Issues = "https://github.com/unknown/filemaker-sql/issues"
 Source = "https://github.com/unknown/filemaker-sql"
 
 [project.scripts]
-fmsql = "fmsql.cli:fmsql"
+fmsql = "fmsql.cli:cli"
 
 [tool.hatch.version]
 path = "src/fmsql/__about__.py"
