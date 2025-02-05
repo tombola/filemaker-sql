@@ -2,8 +2,10 @@ import datetime
 
 from pypika.terms import Function
 from rich import print
+import pytz
 
-TIMEZONE = "Europe/London"
+# TIMEZONE = "Europe/London"
+TIMEZONE = pytz.timezone("Europe/London")
 TIMEZONE_OFFSET = "+0000"
 
 
@@ -28,6 +30,6 @@ class FMDate(Function):
     def _fm_date_string(self):
         return self.date.strftime("%Y/%m/%d")
 
-    def get_function_sql(self) -> str:
+    def get_function_sql(self, *args, **kwargs) -> str:
         # DATE 2024/12/01
         return f"{self.name} '{self._fm_date_string}'"
