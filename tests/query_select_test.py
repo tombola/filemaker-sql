@@ -1,6 +1,9 @@
 import pypyodbc
-from pypika import MSSQLQuery as Query, Tables
+from pypika import Tables
+from fmsql import FileMakerQuery as Query
 from rich import print
+
+from fmsql.dialects import FileMakerQuery as Query
 
 
 def test_always_true():
@@ -28,9 +31,7 @@ def test_select_limit_offset(fmdb: pypyodbc.Connection):
     with fmdb:
         cursor = fmdb.cursor()
         q = Query.from_("Products").select("Date", "Part Number").limit(10)
-        # q = Query.from_("Products").select("Date", "Part Number")
         sql = q.get_sql()
-        # sql += " OFFSET 10 ROWS FETCH FIRST 10 ROWS ONLY"
         print(sql)
         results = cursor.execute(sql)
         all_results = results.fetchall()
