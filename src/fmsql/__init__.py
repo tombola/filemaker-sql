@@ -1,3 +1,1 @@
-# SPDX-FileCopyrightText: 2023-present tombola <tombola@github>
-#
-# SPDX-License-Identifier: MIT
+from fmsql.dialects import FileMakerQuery
