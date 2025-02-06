@@ -1,5 +1,5 @@
 import pypyodbc
-from pypika import Query, Tables
+from pypika import MSSQLQuery as Query, Tables
 from rich import print
 
 
@@ -22,6 +22,22 @@ def test_select(fmdb: pypyodbc.Connection):
 
     assert isinstance(results, pypyodbc.Cursor)
     assert isinstance(all_results, list)
+
+
+def test_select_limit_offset(fmdb: pypyodbc.Connection):
+    with fmdb:
+        cursor = fmdb.cursor()
+        q = Query.from_("Products").select("Date", "Part Number").limit(10)
+        # q = Query.from_("Products").select("Date", "Part Number")
+        sql = q.get_sql()
+        # sql += " OFFSET 10 ROWS FETCH FIRST 10 ROWS ONLY"
+        print(sql)
+        results = cursor.execute(sql)
+        all_results = results.fetchall()
+
+    assert isinstance(results, pypyodbc.Cursor)
+    assert isinstance(all_results, list)
+    assert len(all_results) == 10
 
 
 def test_select_join(fmdb: pypyodbc.Connection):
