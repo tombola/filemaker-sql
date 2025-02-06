@@ -28,6 +28,16 @@ classifiers = [
 dependencies = [
   "click",
   "pytz",
+  "pypika",
+  "pypyodbc",
+]
+[project.optional-dependencies]
+test = [
+  "coverage[toml]>=6.5",
+  "pytest",
+]
+dev = [
+  "pre-commit",
 ]
 
 [project.urls]

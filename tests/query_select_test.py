@@ -1,7 +1,6 @@
 import pypyodbc
 from pypika import Tables
 from fmsql import FileMakerQuery as Query
-from rich import print
 
 from fmsql.dialects import FileMakerQuery as Query
 

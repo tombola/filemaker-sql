@@ -1,8 +1,8 @@
 import datetime
 
+import pytz
 from pypika.terms import Function
 from rich import print
-import pytz
 
 # TIMEZONE = "Europe/London"
 TIMEZONE = pytz.timezone("Europe/London")
